@@ -1,0 +1,25 @@
+{
+  "name": "image",
+  "version": "1.0.0",
+  "description": "* Usage    * Filter red imageName => apply red filter on the image.   * Filter green imageName => apply green filter on the image.   * Filter blue imageName => apply blue filter on the image.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pritambhuiya/imageEditor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pritambhuiya/imageEditor/issues"
+  },
+  "homepage": "https://github.com/pritambhuiya/imageEditor#readme",
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  },
+  "dependencies": {
+    "jpeg-js": "^0.4.4"
+  }
+}
