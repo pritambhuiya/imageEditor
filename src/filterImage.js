@@ -2,6 +2,7 @@ const jpeg = require('jpeg-js');
 const { Color } = require('./color.js');
 const { Pixel } = require('./pixel');
 const { Position } = require('./position');
+const { Filter } = require('./Filter');
 
 const calcOrdinate = (index, width) => Math.floor(index / width);
 const calcAbscissa = (index, width) => index % width;
@@ -13,12 +14,16 @@ function getPosition(index, width) {
   return new Position(abscissa, ordinate);
 }
 
+const getColor = (buffer, index) => {
+  const colorBuffer = buffer.slice(index, index + 4);
+  return new Color(...colorBuffer);
+};
+
 const partPixels = ({ width, data }) => {
   const pixels = [];
 
   for (let index = 0; index < data.length; index += 4) {
-    const colorBuffer = data.slice(index, index + 4);
-    const color = new Color(...colorBuffer);
+    const color = getColor(data, index);
     const position = getPosition(index, width);
 
     pixels.push(new Pixel(color, position));
@@ -27,17 +32,11 @@ const partPixels = ({ width, data }) => {
   return pixels;
 };
 
-const applyFilter = (image, filter) => {
+const applyFilter = (image, filterName) => {
   const pixels = partPixels(image);
+  const filter = new Filter(pixels);
 
-  if (filter === 'cyan') {
-    pixels.forEach(pixel => pixel.unsetRed());
-  } else if (filter === 'magenta') {
-    pixels.forEach(pixel => pixel.unsetGreen());
-  } else if (filter === 'yellow') {
-    pixels.forEach(pixel => pixel.unsetBlue());
-  }
-
+  filter.applyFilter(filterName);
   image.data = pixels.flatMap(pixel => pixel.toArray());
   return image;
 };

@@ -3,24 +3,24 @@
 # TODO
 
 - [ ] Implement Image.
-- [ ] Extract `getPosition` from `partPixels`
 - [ ] Remove dependencies.
   - [ ] fs.readFileSync.
   - [ ] fs.writeFileSync.
   - [ ] jpeg-js
-- [ ] Implement another filter
 - [ ] Extract a class from all filters
 - [ ] Show user prompt
 - [ ] Accept user input
 
 # MAYBE
 
-- [ ] Make a image class.
 - [ ] Implement `move` method for pixel
 - [ ] Implement  `mirrorPosition` method for pixel.
 
 # DONE
 
+- [x] Implement another filter
+- [x] Implement Filter.
+- [x] Extract `getPosition` from `partPixels`
 - [x] Implement `applyFilter`
 - [x] Implement partPixel function.
 - [x] Make pixel entity - (color,position)

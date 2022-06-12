@@ -1,3 +1,4 @@
+/* eslint-disable id-length */
 class Position {
   constructor(x, y) {
     this.x = x;
