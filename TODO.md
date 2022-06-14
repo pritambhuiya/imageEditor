@@ -2,6 +2,7 @@
 
 # TODO
 
+- [ ] Use color-name library.
 - [ ] Implement Image.
 - [ ] Remove dependencies.
   - [ ] fs.readFileSync.

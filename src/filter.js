@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 class Filter {
   #pixels;
 
@@ -6,47 +5,35 @@ class Filter {
     this.#pixels = pixels;
   }
 
-  #cyan() {
+  cyan() {
     this.#pixels.forEach(pixel => pixel.unsetRed());
   }
 
-  #magenta() {
+  magenta() {
     this.#pixels.forEach(pixel => pixel.unsetGreen());
   }
 
-  #yellow() {
+  yellow() {
     this.#pixels.forEach(pixel => pixel.unsetBlue());
   }
 
-  #red() {
+  red() {
     this.magenta();
     this.yellow();
   }
 
-  #green() {
+  green() {
     this.cyan();
     this.yellow();
   }
 
-  #blue() {
+  blue() {
     this.cyan();
     this.magenta();
   }
 
   applyFilter(filterName) {
-    if (filterName === 'cyan') {
-      this.#cyan();
-    } else if (filterName === 'magenta') {
-      this.#magenta();
-    } else if (filterName === 'yellow') {
-      this.#yellow();
-    } else if (filterName === 'red') {
-      this.#red();
-    } else if (filterName === 'green') {
-      this.#green();
-    } else if (filterName === 'blue') {
-      this.#blue();
-    }
+    this[filterName]();
   }
 }
 
