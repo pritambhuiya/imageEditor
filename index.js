@@ -4,11 +4,12 @@ const { filterImage } = require('./src/filterImage.js');
 const readImage = (path) => fs.readFileSync(path);
 const writeImage = (path, imageData) => fs.writeFileSync(path, imageData);
 
-const main = () => {
-  const image = readImage('./sunrise.jpeg');
-  const filteredImage = filterImage(image, 'magenta');
+const main = (imageFile = './sunrise.jpeg', filter = 'blue') => {
+  const image = readImage(imageFile);
+  const filteredImage = filterImage(image, filter);
 
   writeImage('./filteredSunrise.jpeg', filteredImage.data);
 };
 
-main();
+const [imageFile, filter] = process.argv.slice(2);
+main(imageFile, filter);

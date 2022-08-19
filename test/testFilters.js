@@ -1,8 +1,9 @@
 const fs = require('fs');
 const assert = require('assert');
-const { filterImage } = require('../src/filters.js');
+const { filterImage } = require('../src/filterImage.js');
 
 const readImage = () => fs.readFileSync('./test/testData/sunrise.jpeg');
+
 const readFilteredImage = () =>
   fs.readFileSync('./test/testData/filteredSunrise.jpeg');
 

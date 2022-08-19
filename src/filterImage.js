@@ -1,8 +1,8 @@
 const jpeg = require('jpeg-js');
 const { Color } = require('./color.js');
-const { Pixel } = require('./pixel');
-const { Position } = require('./position');
-const { Filter } = require('./Filter');
+const { Pixel } = require('./pixel.js');
+const { Position } = require('./position.js');
+const { Filter } = require('./filters.js');
 
 const calcOrdinate = (index, width) => Math.floor(index / width);
 const calcAbscissa = (index, width) => index % width;
